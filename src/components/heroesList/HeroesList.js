@@ -2,7 +2,7 @@ import { useHttp } from "../../hooks/http.hook";
 import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted, heroCreated } from "../../actions";
+import { heroesFetching, heroesFetched, heroesFetchingError, heroDeleted } from "../../actions";
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from "../spinner/Spinner";
 
@@ -12,7 +12,7 @@ import Spinner from "../spinner/Spinner";
 // Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
-    const { heroes, heroesLoadingStatus } = useSelector((state) => state);
+    const { filteredHeroes, heroesLoadingStatus } = useSelector((state) => state);
     const dispatch = useDispatch();
     const { request } = useHttp();
 
@@ -23,15 +23,16 @@ const HeroesList = () => {
             .catch(() => dispatch(heroesFetchingError()));
 
         // eslint-disable-next-line
-    }, []);
+    }, []); 
 
     const onDelete = useCallback(
         (id) => {
             request(`http://localhost:3001/heroes/${id}`, "DELETE")
-                // .then((data) => console.log(data, "Deleted"))
+                .then((data) => console.log(data, "Deleted"))
                 .then(dispatch(heroDeleted(id)))
                 .catch((error) => console.log(error));
         },
+        //data-удаленный персонаж с его данными
         // eslint-disable-next-line
         [request]
     );
@@ -52,7 +53,7 @@ const HeroesList = () => {
         });
     };
 
-    const elements = renderHeroesList(heroes);
+    const elements = renderHeroesList(filteredHeroes);
     return <ul>{elements}</ul>;
 };
 
