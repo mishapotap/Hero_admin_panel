@@ -29,6 +29,12 @@
       "name": "ава",
       "description": "а",
       "element": "Я владею элементом..."
+    },
+    {
+      "id": "d3d81c2c-08b0-443e-bc5b-5158ebe37cc0",
+      "name": "Михаил",
+      "description": "gfgfgfg",
+      "element": "fire"
     }
   ],
   "filters": [
