@@ -13,18 +13,6 @@
       "element": "Я владею элементом..."
     },
     {
-      "id": "a6920ea0-a462-47ef-b4f3-170ee29ca8c9",
-      "name": "Михаил",
-      "description": "fdsfsdf",
-      "element": "fire"
-    },
-    {
-      "id": "3a46d548-2d4c-46c0-9041-c14eac4a59e6",
-      "name": "fdsfdsf",
-      "description": "jhfh",
-      "element": "water"
-    },
-    {
       "id": "ccbc3ddc-86a7-411e-a6d4-2632901b02a4",
       "name": "fsdfsdf",
       "description": "вава",
@@ -37,10 +25,16 @@
       "element": "water"
     },
     {
-      "id": "b283d1e0-2e50-494c-87e2-0386044a00ba",
-      "name": "Михаил",
-      "description": "авпвпва",
-      "element": "water"
+      "id": "d596d267-2d03-46d1-988a-770fcbbdbc7e",
+      "name": "fsdgdfgdf",
+      "description": "gdfgdfg",
+      "element": "fire"
+    },
+    {
+      "id": "bed836ce-eaeb-4831-9008-66b5a45ab3e5",
+      "name": "fdsfsdf",
+      "description": "fsdfsdf",
+      "element": "fire"
     }
   ],
   "filters": [
