@@ -7,24 +7,6 @@
       "element": "fire"
     },
     {
-      "id": 3,
-      "name": "Морской герой",
-      "description": "Как аквамен, но не из DC",
-      "element": "water"
-    },
-    {
-      "id": "e5132b56-b9fc-4811-ac66-f75ac9397628",
-      "name": "Михаил",
-      "description": "вуав",
-      "element": "water"
-    },
-    {
-      "id": "05104d31-a9b8-473e-b7fb-2750effd9767",
-      "name": "fdsfdsf",
-      "description": "апапра",
-      "element": "wind"
-    },
-    {
       "id": "1b3f3f03-f927-4269-9e96-462d0fed1c18",
       "name": "ава",
       "description": "а",
@@ -35,6 +17,30 @@
       "name": "Михаил",
       "description": "fdsfsdf",
       "element": "fire"
+    },
+    {
+      "id": "3a46d548-2d4c-46c0-9041-c14eac4a59e6",
+      "name": "fdsfdsf",
+      "description": "jhfh",
+      "element": "water"
+    },
+    {
+      "id": "ccbc3ddc-86a7-411e-a6d4-2632901b02a4",
+      "name": "fsdfsdf",
+      "description": "вава",
+      "element": "wind"
+    },
+    {
+      "id": "44faad66-fe76-4f13-bb23-9bcbd4aaeb8a",
+      "name": "Михаил",
+      "description": "jhk",
+      "element": "water"
+    },
+    {
+      "id": "b283d1e0-2e50-494c-87e2-0386044a00ba",
+      "name": "Михаил",
+      "description": "авпвпва",
+      "element": "water"
     }
   ],
   "filters": [
