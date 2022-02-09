@@ -2,37 +2,39 @@ import { useHttp } from "../../hooks/http.hook";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import store from "../../store";
+
+import { selectAll } from "../heroesFilters/filtersSlice";
 import { heroCreated } from "../heroesList/heroesSlice";
 
 const HeroesAddForm = () => {
-    // Создал контроль формы
     const [heroName, setHeroName] = useState("");
     const [heroDescr, setHeroDescr] = useState("");
     const [heroElement, setHeroElement] = useState("");
 
-    const { filters, filtersLoadingStatus } = useSelector((state) => state.filters);
+    const { filtersLoadingStatus } = useSelector((state) => state.filters);
+    const filters = selectAll(store.getState());
     const dispatch = useDispatch();
     const { request } = useHttp();
 
-    const onSubmitHandler = (event) => {
-        event.preventDefault();
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
         const newHero = {
             id: uuidv4(),
             name: heroName,
             description: heroDescr,
             element: heroElement,
         };
-        // Отправил форму (если запрос успешен то отправляю персонажа в store)
-        request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
-            .then((res) => console.log(res, "Отправка прошла успешно"))
-            .then(dispatch(heroCreated(newHero)))
-            .catch((error) => console.log(error));
 
-        // Очистил форму после отправки
+        request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
+            .then((res) => console.log(res, "Отправка успешна"))
+            .then(dispatch(heroCreated(newHero)))
+            .catch((err) => console.log(err));
+
         setHeroName("");
         setHeroDescr("");
         setHeroElement("");
-    }; // Отправка формы и ее обнуление после отправки
+    };
 
     const renderFilters = (filters, status) => {
         if (status === "loading") {
@@ -45,6 +47,7 @@ const HeroesAddForm = () => {
             return filters.map(({ name, label }) => {
                 // eslint-disable-next-line
                 if (name === "all") return;
+
                 return (
                     <option key={name} value={name}>
                         {label}
@@ -52,7 +55,7 @@ const HeroesAddForm = () => {
                 );
             });
         }
-    }; //Динамически формируем элементы (вода, огонь) героев
+    };
 
     return (
         <form className="border p-4 shadow-lg rounded" onSubmit={onSubmitHandler}>
